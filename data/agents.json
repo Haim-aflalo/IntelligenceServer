@@ -1,0 +1,32 @@
+[
+  {
+    "id": 101,
+    "name": "Eitan Levi",
+    "nickname": "Falcon",
+    "reportsCount": 1
+  },
+  {
+    "id": 102,
+    "name": "Sarah Cohen",
+    "nickname": "Shadow",
+    "reportsCount": 2
+  },
+  {
+    "id": 103,
+    "name": "Yossi Amar",
+    "nickname": "Hammer",
+    "reportsCount": 1
+  },
+  {
+    "id": 104,
+    "name": "Noa Katz",
+    "nickname": "Phoenix",
+    "reportsCount": 1
+  },
+  {
+    "id": 105,
+    "name": "Daniel Ohayon",
+    "nickname": "Ghost",
+    "reportsCount": 0
+  }
+]
