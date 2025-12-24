@@ -1,13 +1,9 @@
 import express from 'express';
 import { read, write } from '../utils/functions.js';
 import { agentPath } from '../data/const.js';
-import { loggedAgent } from '../utils/middleware.js';
-
 export const agentRoute = express();
 
-agentRoute.use(express.json());
-
-agentRoute.get('/', loggedAgent, async (req, res) => {
+agentRoute.get('/', async (req, res) => {
   try {
     const data = await read(agentPath);
     res.status(200).send(data);
@@ -16,7 +12,7 @@ agentRoute.get('/', loggedAgent, async (req, res) => {
   }
 });
 
-agentRoute.get('/:id', loggedAgent, async (req, res) => {
+agentRoute.get('/:id', async (req, res) => {
   try {
     const data = await read(agentPath);
     for (let agent of data) {
@@ -30,7 +26,7 @@ agentRoute.get('/:id', loggedAgent, async (req, res) => {
   }
 });
 
-agentRoute.post('/', loggedAgent, async (req, res) => {
+agentRoute.post('/', async (req, res) => {
   try {
     const data = await read(agentPath);
     for (let agent of data) {
@@ -46,7 +42,7 @@ agentRoute.post('/', loggedAgent, async (req, res) => {
   }
 });
 
-agentRoute.put('/:id', loggedAgent, async (req, res) => {
+agentRoute.put('/:id', async (req, res) => {
   try {
     const data = await read(agentPath);
     for (let i in data) {
@@ -61,7 +57,7 @@ agentRoute.put('/:id', loggedAgent, async (req, res) => {
   }
 });
 
-agentRoute.delete('/:id', loggedAgent, async (req, res) => {
+agentRoute.delete('/:id', async (req, res) => {
   try {
     const data = await read(agentPath);
     for (let i in data) {

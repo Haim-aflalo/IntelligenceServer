@@ -1,12 +1,9 @@
 import express from 'express';
 import { read, write } from '../utils/functions.js';
-import { loggedUser } from '../utils/middleware.js';
 import { userPath } from '../data/const.js';
-
 export const userRoute = express();
-userRoute.use(express.json());
 
-userRoute.get('/', loggedUser, async (req, res) => {
+userRoute.get('/', async (req, res) => {
   try {
     const data = await read(userPath);
     res.send(data);
@@ -15,7 +12,7 @@ userRoute.get('/', loggedUser, async (req, res) => {
   }
 });
 
-userRoute.post('/', loggedUser, async (req, res) => {
+userRoute.post('/', async (req, res) => {
   try {
     const data = await read(userPath);
     data.push(req.body);
@@ -26,7 +23,7 @@ userRoute.post('/', loggedUser, async (req, res) => {
   }
 });
 
-userRoute.put('/:username', loggedUser, async (req, res) => {
+userRoute.put('/:username', async (req, res) => {
   try {
     const data = await read(userPath);
     for (let i in data) {
@@ -42,7 +39,7 @@ userRoute.put('/:username', loggedUser, async (req, res) => {
   }
 });
 
-userRoute.delete('/:username', loggedUser, async (req, res) => {
+userRoute.delete('/:username', async (req, res) => {
   try {
     const data = await read(userPath);
 
